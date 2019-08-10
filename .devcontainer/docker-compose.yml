@@ -1,0 +1,23 @@
+version: "3.1"
+volumes:
+    minio_data: null
+services:
+    development:
+        image: nimashoghi/fsharp
+        volumes:
+            - '..:/workspace'
+            - '~/.gitconfig:/root/.gitconfig'
+            - '/var/run/docker.sock:/var/run/docker.sock'
+        ports:
+            - "5000:5000"
+            - "5001:5001"
+    minio:
+        image: minio/minio
+        volumes:
+            - 'minio_data:/data'
+        environment:
+            MINIO_ACCESS_KEY: ACCESS_KEY
+            MINIO_SECRET_KEY: SECRET_KEY
+        command: '--compat server /data'
+        ports:
+            - '9001:9000'

@@ -1,0 +1,10 @@
+{
+    "name": "F#",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "development",
+    "workspaceFolder": "/workspace",
+    "extensions": [
+        "ms-vscode.csharp",
+        "ionide.ionide-fsharp"
+    ]
+}
